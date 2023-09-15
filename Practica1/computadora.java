@@ -1,4 +1,26 @@
+/**
+* Computadora.java
+*
+* @author H�ctor Manuel Quej Cosgaya
+* @author Jos� Aguilar Canepa
+* 
+* @created 04/11/12 11:08 AM
+*
+* Esta clase es tu examen diagn�stico para entrar a Lenguaje de Programaci�n II
+* Intencionalmente, los autores han introducido una serie de errores en esta clase. 10 de ellos, en concreto.
+* Tu trabajo es encontrarlos, y corregirlos. �Utiliza todo lo que aprendiste en Lenguaje de Programaci�n I!
+* Las �nicas reglas que tienes que seguir son:
+*     1.- NO puedes borrar ning�n m�todo. La clase empieza con un constructor, 8 m�todos y el m�todo main: as� debe finalizar.
+*     2.- NO puedes borrar ninguna variable,.
+*     3.- NO puedes modificar el m�todo main. Palabra de desarrollador de software que no hay nada malo con �l.
+* Salvo esas reglas, puedes hacer las modificaciones que creas pertinentes. Sin embargo, solamente 10 cambios son necesarios para que la clase funcione de nuevo
+* Que no te enga�e el compilador, ni te desesperes. �Unicamente hay 10 errores!
+*
+* �Buena suerte, y bienvenido a Lenguaje de Programaci�n II!
+*/
+
 import javax.swing.JOptionPane;
+
 public class Computadora{
 	
 	int discoDuro;
@@ -8,7 +30,6 @@ public class Computadora{
 	String nombre;
 	String [] memoria=new String[10];
 	
-
 	public Computadora(String nombreEquipo){
 		discoDuro = 640;
 		velocidadProcesador = 3.1f;
