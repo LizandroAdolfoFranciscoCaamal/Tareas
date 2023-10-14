@@ -5,14 +5,13 @@ public class Movimiento {
     private String nombre;
     private int puntosDeAtaque;
     private int pp;
-    private Tipo Tipo;
+    private Tipo tipo;
 
     public Movimiento(String nombre, int puntosDeAtaque, Tipo Tipo, int pp){
         this.nombre = nombre;
         this.puntosDeAtaque = puntosDeAtaque;
         this.pp = pp;
         this.tipo = tipo;
-
     }
     
     public String getNombre(){
