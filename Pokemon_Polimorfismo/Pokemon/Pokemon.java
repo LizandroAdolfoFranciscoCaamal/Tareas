@@ -58,7 +58,7 @@ public abstract class Pokemon {
         double puntosRestados = (0.01* efectividad * variacion * (danio));
         this.hp -= puntosRestados;
         System.out.printf("%s recibe %.2f puntos de danio\n", this.getNombre(), puntosRestados);
-        this.calculaVida(puntosRestados, efectividad);
+        this.calcularVida(puntosRestados, efectividad);
     }
 
     public void recibirAtaque(Movimiento movimiento, double efectividad) {
