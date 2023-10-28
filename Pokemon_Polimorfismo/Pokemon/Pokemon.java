@@ -7,7 +7,7 @@ public abstract class Pokemon {
     private Stats stats;
     private Movimiento movimientos[];
 
-    public Pokemon(String nombre, Tipo tipo, int nivel) {
+    public Pokemon(String nombre, Tipo tipo, int nivel, Stats stats) {
         this.nombre = nombre;
         this.tipo = tipo;
         this.stats = new stats();
