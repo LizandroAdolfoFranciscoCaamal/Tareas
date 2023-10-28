@@ -6,12 +6,14 @@ public class Movimiento {
     private int puntosDeAtaque;
     private int pp;
     private Tipo tipo;
+    private TipoMovimiento movimiento;
 
-    public Movimiento(String nombre, int puntosDeAtaque, Tipo Tipo, int pp) {
+    public Movimiento(String nombre, int puntosDeAtaque, Tipo Tipo, int pp, TipoMovimiento movimiento) {
         this.nombre = nombre;
         this.puntosDeAtaque = puntosDeAtaque;
         this.tipo = tipo;
         this.pp = pp;
+        this.movimiento = movimiento
 
     }
 
@@ -33,6 +35,10 @@ public class Movimiento {
 
     public Tipo getTipo() {
         return tipo;
+    }
+
+    public TipoMovimiento getmovimiento() {
+         return movimiento;
     }
 
 }
