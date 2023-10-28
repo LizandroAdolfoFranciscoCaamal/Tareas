@@ -6,9 +6,9 @@ public class Movimiento {
     private int puntosDeAtaque;
     private int pp;
     private Tipo tipo;
-    private TipoMovimiento movimiento;
+    private ClaseMovimiento movimiento;
 
-    public Movimiento(String nombre, int puntosDeAtaque, Tipo Tipo, int pp, TipoMovimiento movimiento) {
+    public Movimiento(String nombre, int puntosDeAtaque, Tipo Tipo, int pp, ClaseMovimiento movimiento) {
         this.nombre = nombre;
         this.puntosDeAtaque = puntosDeAtaque;
         this.tipo = tipo;
@@ -37,7 +37,7 @@ public class Movimiento {
         return tipo;
     }
 
-    public TipoMovimiento getmovimiento() {
+    public ClaseMovimiento getmovimiento() {
          return movimiento;
     }
 
