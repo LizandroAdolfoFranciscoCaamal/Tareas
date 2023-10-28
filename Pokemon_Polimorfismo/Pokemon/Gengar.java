@@ -1,10 +1,11 @@
 package pokemon;
 
 public class Gengar extends Pokemon {
-
-
-  public Gengar(String nombre, int nivel) {
-    super(nombre, nivel,);
+  
+    public Gengar(String nombre, Stats stats) {
+        super(nombre, new Tipo[]{Tipo.FANTASMA, Tipo.VENENO}, stats);
+    }
+}
 
     ListaMovimientos listaMovimientos = new ListaMovimientos();
 
