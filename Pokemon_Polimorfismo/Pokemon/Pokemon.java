@@ -46,12 +46,6 @@ public abstract class Pokemon {
     public void setMovimientos(int i, Movimiento movimientos) {
         this.movimientos[i] = movimientos;
     }
-    
-    private void calcularVida(double vidaRestante, double efectividad) {
-        double puntosRestados = vidaRestante * efectividad;
-        this.hp -= puntosRestados;
-        System.out.printf("% recibe % puntos de vida\n", this.getNombre(), puntosRestados);
-    }
 
     private void calcularDanio(int danio, double efectividad) {
         int variacion = (int)(85+Math.random()*16);
@@ -60,10 +54,26 @@ public abstract class Pokemon {
         System.out.printf("%s recibe %.2f puntos de danio\n", this.getNombre(), puntosRestados);
         this.calcularVida(puntosRestados, efectividad);
     }
-
-    public void recibirAtaque(Movimiento movimiento, double efectividad) {
+    
+    private void calcularVida(double vidaRestante, double efectividad) {
+        double puntosRestados = vidaRestante * efectividad;
+        this.hp -= puntosRestados;
+        System.out.printf("% recibe % puntos de vida\n", this.getNombre(), puntosRestados);
+    }
+    
+   public void recibirAtaque(Pokemon pokemon, Movimiento movimiento, double efectividad) {
         System.out.printf("%s recibe ATK %s\n", this.getNombre(), movimiento.getNombre());
         calcularDanio(movimiento.getPuntosDeAtaque(), efectividad);
+       if(movimiento.getClaseMovimiento()== ClaseMovimiento.FÍSICO){
+            danio = (int)((((0.2*pokemon.getNivel()+1)*(pokemon.getAtaque()*movimiento.getPotencia()))/(25*getDefensa()))+2);
+        } 
+
+        else if(movimiento.getClaseMovimiento()== ClaseMovimiento.ESPECIAL){
+            danio = (int)((((0.2*pokemon.getNivel()+1)*(pokemon.getAtaqueEspecial()*movimiento.getPotencia()))/(25*getDefensaEspecial()))+2);
+        }
+        else (movimiento.getClaseDeMovimiento()== ClaseMovimiento.ESTADO){
+            danio = (int)((((0.2*pokemon.getNivel()+1)*(pokemon.getAtaque()*movimiento.getPotencia()))/(25*getDefensa()))+2);
+        }
     }
 
     protected boolean seHaConcretadoAtaque(Movimiento movimiento, Pokemon pokemon) {
@@ -79,9 +89,9 @@ public abstract class Pokemon {
         }
     }
 
-    public void atacar(int m, Pokemon pokemon) {
+    public void atacar(int m, Pokemon pokemon, Pokemon pokemonObjetivo) {
         Movimiento movimiento = getMovimientos(m);
-        boolean seHaConcretadoAtaque = seHaConcretadoAtaque(movimiento, pokemon);
+        boolean seHaConcretadoAtaque = seHaConcretadoAtaque(movimiento, pokemon, pokemonObjetivo);
         if (seHaConcretadoAtaque) {
             pokemon.getMovimientos(m).setPp(movimiento.getPp() - 1);
         }
@@ -90,5 +100,5 @@ public abstract class Pokemon {
     
 
 
-    public abstract double obtenerEfectividad(Pokemon pokemon);
+    public abstract double obtenerEfectividad(Pokemon pokemon, int m);
 }
