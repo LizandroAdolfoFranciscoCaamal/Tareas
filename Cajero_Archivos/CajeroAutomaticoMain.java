@@ -1,21 +1,24 @@
+import java.util.Scanner;
 
+public class CajeroAutomaticoMain {
 
-public class CajeroAutomáticoMain {
     public static void main(String[] args) {
-        // Solicitar nombre y pin
-        String nombre = obtenerEntradaUsuario("Ingrese su nombre: ");
-        int pin = obtenerPin("Ingrese el PIN: ");
+        Scanner scanner = new Scanner(System.in);
 
-        // Verificar acceso al modo administrador o cajero
-        if (nombre.equalsIgnoreCase("admin") && pin == 3243) {
-            // Acceder al modo administrador
-            Administrador admin = new Administrador();
-            admin.iniciarAdministrador();
+        System.out.println("Bienvenido al Cajero Automático");
+        System.out.print("Ingrese su nombre: ");
+        String nombre = scanner.nextLine();
+        System.out.print("Ingrese su NIP de 4 dígitos: ");
+        int nip = scanner.nextInt();
+
+        if (nombre.equals("admin") && nip == 3243) {
+            Admin admin = new Admin();
+            admin.iniciar();
         } else {
-            // Acceder al modo cajero
-            CajeroAutomático cajero = new CajeroAutomático(nombre, pin);
-            cajero.iniciarCajero();
+            Cajero cajero = new Cajero(nombre, nip);
+            cajero.iniciar();
         }
-    }
 
-    private static St
+        scanner.close();
+    }
+}
