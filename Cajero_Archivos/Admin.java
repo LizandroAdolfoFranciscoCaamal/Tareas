@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -13,28 +12,29 @@ public class Admin {
 
             switch (opcion) {
                 case 1:
-                    // mostrarLog
+                    mostrarLog();
                     System.out.println("Mostrar log de acciones.");
                     break;
                 case 2:
-                    // mostrarCantidadBilletes
+                    mostrarCantidadBilletes();
                     System.out.println("Mostrar cantidad de billetes.");
                     break;
                 case 3:
-                    System.out.println("Sesión de administrador finalizada. ¡Hasta luego!");
+                    System.out.println("Modo administrador finalizado.");
                     System.exit(0);
                 default:
-                    System.out.println("Opción no válida. Por favor, seleccione una opción correcta.");
+                    System.out.println("Opcion no válida. Por favor, seleccione una opcion correcta.");
             }
         }
     }
 
     public void mostrarMenuAdmin() {
-        System.out.println("\nAcciones disponibles para el Administrador:");
+        System.out.println("\nBienvenido Administrador " +
+                "\nOpciones de modo administrador:");
         System.out.println("1. Mostrar log de acciones");
         System.out.println("2. Mostrar cantidad de billetes");
         System.out.println("3. Salir");
-        System.out.print("Seleccione una opción: ");
+        System.out.print("Seleccione una opcion: ");
     }
 
     public int solicitarOpcionAdmin() {
@@ -62,4 +62,3 @@ public class Admin {
         System.out.println("Billetes de $1,000: " + Billetes.getInstance().getCantidad1000());
     }
 }
-
