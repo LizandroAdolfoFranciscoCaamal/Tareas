@@ -1,16 +1,5 @@
-import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
-public class CajeroAutomático {
-    private String usuario;
-    private int saldoMaximo = 50000;
-    private int saldo;
-    private int pin;
-    private static final String LOG_FILE = "logs.txt";
-    private static final String BILLETES_FILE = "billetes.dat";
-    private Map<Integer, Billete> billetes = new HashMap<>();
+
 
     public CajeroAutomático(String usuario, int pin) {
         this.usuario = usuario;
