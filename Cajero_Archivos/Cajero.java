@@ -1,20 +1,39 @@
+import java.io.*;
+import java.util.Random;
+import java.util.Scanner;
 
+public class Cajero {
 
+    private String nombre;
+    private int nip;
+    private int saldo;
+    private Random random = new Random();
 
-    public CajeroAutomático(String usuario, int pin) {
-        this.usuario = usuario;
-        this.pin = pin;
-        this.saldo = new Random().nextInt(saldoMaximo - 1000) + 1000;
-        inicializarBilletes();
+    public Cajero(String nombre, int nip) {
+        this.nombre = nombre;
+        this.nip = nip;
+        this.saldo = random.nextInt(49001) + 1000;
     }
 
-    private void inicializarBilletes() {
-        cargarBilletesDesdeArchivo();
-        if (billetes.isEmpty()) {
-            billetes.put(100, new Billete(100, 100));
-            billetes.put(200, new Billete(200, 100));
-            billetes.put(500, new Billete(500, 20));
-            billetes.put(1000, new Billete(1000, 10));
-            guardarBilletesEnArchivo();
+    public void iniciar() {
+        cargarBilletes();
+
+        while (true) {
+            mostrarMenu();
+            int opcion = solicitarOpcion();
+
+            switch (opcion) {
+                case 1:
+                    consultarSaldo();
+                    break;
+                case 2:
+                    retirarEfectivo();
+                    break;
+                case 3:
+                    System.out.println("Gracias por utilizar el Cajero Automático. ¡Hasta luego!");
+                    System.exit(0);
+                default:
+                    System.out.println("Opción no válida. Por favor, seleccione una opción correcta.");
+            }
         }
     }
