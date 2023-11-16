@@ -62,3 +62,4 @@ public class Admin {
         System.out.println("Billetes de $1,000: " + Billetes.getInstance().getCantidad1000());
     }
 }
+
